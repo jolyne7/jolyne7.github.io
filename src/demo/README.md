@@ -1,12 +1,6 @@
 ---
 title: Features Demo
-index: false
-breadcrumbIcon: false
-editLink: false
-lastUpdated: false
-contributors: false
-toc: false
-
+date: 2022-12-10
 category:
   - Guide
 ---
