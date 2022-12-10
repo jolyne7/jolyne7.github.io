@@ -6,7 +6,7 @@ title: 首页
 
 heroImage: /logo.svg
 
-bgImage: https://zfh-nanjing-bucket.oss-cn-nanjing.aliyuncs.com/blog-images/bg5.jpg
+bgImage: https://tva1.sinaimg.cn/large/84fae4c3ly1h8yugtxwerj23ii2c2av1.jpg
 heroText: '度达科技'
 tagline: 'DuDa'
 heroFullScreen: true
