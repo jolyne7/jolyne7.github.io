@@ -5,7 +5,7 @@ import {zhSidebar} from "./sidebar";
 export default hopeTheme({
   hostname: "https://mister-hope.github.io",
   blogLocales: {
-    article: "个数",
+    // article: "个数",
   },
   // author: {
   //   name: "Mr.Hope",
@@ -15,7 +15,7 @@ export default hopeTheme({
   // pure: true,
   iconAssets: "iconfont",
 
-  logo: "/logo.svg",
+  logo: "/logo.png",
 
   repo: "vuepress-theme-hope/vuepress-theme-hope",
 
@@ -39,6 +39,8 @@ export default hopeTheme({
   pageInfo: ["Date", "Category", "Tag"],
 
   blog: {
+    roundAvatar: true,
+
     articleInfo: ["Date", "Category", "Tag"],
 
     medias: {
