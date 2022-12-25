@@ -1,0 +1,56 @@
+---
+author: haya
+title: Kafka引擎
+date: 2022-05-24
+article: true
+timeline: true
+category: clickhouse
+tag:
+- clickhouse
+- kafka
+---
+
+clickhouse拥有kafka表引擎，支持从kafka读取数据。
+
+## 建表示例
+```sql
+-- topic.topic_dwd_gms_log definition
+
+CREATE TABLE db.tableName(
+    `date` Date,
+    `timestamp` DateTime64(3),
+    `type` String,
+    -- ...
+)
+ENGINE = Kafka
+SETTINGS kafka_broker_list = 'kafka-service.kafka:9092',
+ kafka_topic_list = 'topicName',
+ kafka_group_name = 'groupName',
+ kafka_format = 'JSONEachRow',
+ kafka_row_delimiter = '\n',
+ input_format_import_nested_json = 1;
+```
+
+## 配合物化视图读取kafka表
+
+建好kafka表后，clickhouse并不会主动读取kafka，因为没有人读取kafka表。
+
+所以需要添加一个物化视图，去读取kafka表的数据，并切将数据持久化到mergeTree中。
+
+大概流程如下：kafka->kafka表->物化视图->持久化表(mergeTree)
+
+### 创建物化视图
+```sql
+CREATE MATERIALIZED VIEW 物化视图表名 TO 持久化表(
+    `date` Date,
+    `timestamp` DateTime64(3),
+    `type` String,
+    -- ...
+) AS
+SELECT *
+FROM kafka表;
+```
+
+### 创建持久化表
+
+参考merge tree建表
