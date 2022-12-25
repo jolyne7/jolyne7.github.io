@@ -4,6 +4,8 @@ export const zhSidebar = sidebar({
   "/java/": "structure",
   "/golang/": "structure",
   "/db/": "structure",
+  "/algo/": "structure",
+  "/knowledge/": "structure",
   "/": [
     "",
   ],
