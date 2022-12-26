@@ -61,3 +61,5 @@ SETTINGS index_granularity = 8192;
 ```
 AggregatingMergeTree会合并(date,timestamp,channel_name,uid,session_id,stream_id)相同的数据。如上述ddl所示，主键外的字段width、height使用的是SimpleAggregateFunction(anyLast, ...)，这代表着在合并数据时会保留最新的后写入的数据。
 
+> 需要注意的是，AggregatingMergeTree合并数据并不会特别及时，在直接查询时会有数据重复的问题。如果要去重的话，需要在from 表名后面加上final， 这样查出来的就是合并去重后的数据。
+
