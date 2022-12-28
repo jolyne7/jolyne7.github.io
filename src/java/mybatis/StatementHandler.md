@@ -1,0 +1,75 @@
+---
+author: haya
+title: StatementHandler
+date: 2020-04-08
+article: true
+timeline: true
+category: java
+tag:
+- java
+- mybatis
+---
+
+
+## 一、StatementHandler结构
+是个接口，定义了几个方法，如下所示：
+```java
+// 基于JDBC 声明Statement
+Statement prepare(Connection connection, Integer transactionTimeout)
+    throws SQLException;
+// 为Statement 设置方法
+void parameterize(Statement statement)
+    throws SQLException;
+// 添加批处理（并非执行）
+void batch(Statement statement)
+    throws SQLException;
+// 执行update操作
+int update(Statement statement)
+    throws SQLException;
+// 执行query操作
+<E> List<E> query(Statement statement, ResultHandler resultHandler)
+    throws SQLException;
+```
+
+- RoutingStatementHandler: StatementHandler直接子类，这个类中并没有实现处理Statement的方法，只是根据得到MappedStatement类型决定创建何种类型StatementHandler对象。
+- BaseStatementHandler: 抽象子类，定义了一些公共方法。
+
+BaseStatementHandler有三个子类 SimpleStatementHandler、PreparedStatementHandler、CallableStatementHandler，分别对应JDBC中的Statement、PreparedStatement、CallableStatement。
+
+- SimpleStatementHandler：管理Statement对象向数据库中推送不需要预编译的SQL语句。
+- PreparedStatementHandler：管理PreparedStatementHandler对象向数据库推送预编译的SQL语句。
+- CallableStatementHandler：管理CallableStatement对象调用数据库中构造函数，即有存储过程的SQL语句。
+
+
+## 二、处理流程
+
+```java
+  @Override
+  public <E> List<E> doQuery(MappedStatement ms, Object parameter, RowBounds rowBounds, ResultHandler resultHandler, BoundSql boundSql) throws SQLException {
+    Statement stmt = null;
+    try {
+      Configuration configuration = ms.getConfiguration();
+      StatementHandler handler = configuration.newStatementHandler(wrapper, ms, parameter, rowBounds, resultHandler, boundSql);
+      // 预处理Statement
+      stmt = prepareStatement(handler, ms.getStatementLog());
+      return handler.query(stmt, resultHandler);
+    } finally {
+      closeStatement(stmt);
+    }
+  }
+
+```
+
+```java
+  private Statement prepareStatement(StatementHandler handler, Log statementLog) throws SQLException {
+    Statement stmt;
+    Connection connection = getConnection(statementLog);
+    stmt = handler.prepare(connection, transaction.getTimeout());
+    // 设置参数
+    handler.parameterize(stmt);
+    return stmt;
+  }
+```
+- executor通过configuration.newStatementHandler创建StatementHandler
+- 然后再调用prepareStatement，去预处理sql（填充参数）
+- 最后调用StatementHandler.query，去执行sql，并交由resultHandler处理查询结果
