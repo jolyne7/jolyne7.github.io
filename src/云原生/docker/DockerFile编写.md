@@ -25,7 +25,7 @@ ADD ../../go.sum .
 RUN go mod download
 
 RUN mkdir -p  /build
-ADD .. /build
+ADD ../../../.. /build
 
 
 WORKDIR /build
