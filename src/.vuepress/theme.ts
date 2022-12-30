@@ -45,7 +45,7 @@ export default hopeTheme({
 
     medias: {
       // Baidu: "https://example.com",
-      // BiliBili: "https://example.com",
+      BiliBili: "https://space.bilibili.com/3575645",
       // Bitbucket: "https://example.com",
       // Dingding: "https://example.com",
       // Discord: "https://example.com",
@@ -55,11 +55,11 @@ export default hopeTheme({
       // Facebook: "https://example.com",
       // Flipboard: "https://example.com",
       // Gitee: "https://example.com",
-      // GitHub: "https://example.com",
+      GitHub: "https://github.com/Hayaking",
       // Gitlab: "https://example.com",
       // Gmail: "https://example.com",
       // Instagram: "https://example.com",
-      // Lark: "https://example.com",
+      Lark: "https://www.feishu.cn/invitation/page/add_contact/?token=007qf68c-43f4-41e8-86b1-753490243f9e&amp;unique_id=hi4B3kKDLCg8dp-20B8d5Q==",
       // Lines: "https://example.com",
       // Linkedin: "https://example.com",
       // Pinterest: "https://example.com",
@@ -74,7 +74,7 @@ export default hopeTheme({
       // Weibo: "https://example.com",
       // Whatsapp: "https://example.com",
       // Youtube: "https://example.com",
-      // Zhihu: "https://example.com",
+      Zhihu: "https://www.zhihu.com/people/hlpx",
     },
   },
 
