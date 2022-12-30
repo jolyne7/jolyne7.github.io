@@ -6,8 +6,8 @@ article: true
 timeline: true
 category: java
 tag:
-- java
 - annotation
+- annotation processor
 ---
 
 ## 什么是Annotation Processor
@@ -15,6 +15,8 @@ tag:
 
 ## 实现
 实现一个@ToString的注解，能够标注在类上，在编译期间重写一个toString方法，让toString方法返回对象的json字符串
+
+https://github.com/Hayaking/java-mate
 
 ### 声明注解
 

@@ -1,6 +1,6 @@
 ---
 author: haya
-title: 什么是JIT编译器
+title: JIT编译器
 date: 2019-09-10
 article: true
 timeline: true
