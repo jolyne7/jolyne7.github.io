@@ -1,7 +1,7 @@
 ---
 author: haya
 title: BASE理论
-date: 2021-11-01
+date: 2021-10-01
 article: true
 timeline: true
 category: 基础知识
