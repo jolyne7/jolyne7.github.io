@@ -4,7 +4,7 @@ title: DockerFile编写
 date: 2021-10-01
 article: true
 timeline: true
-category: 其它
+category: 云原生
 tag:
 - docker
 ---

@@ -4,7 +4,7 @@ title: k8s常用命令
 date: 2021-10-02
 article: true
 timeline: true
-category: 其它
+category: 云原生
 tag:
 - k8s
 ---
