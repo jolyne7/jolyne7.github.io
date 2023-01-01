@@ -92,11 +92,27 @@ The principle reason for the three-way handshake is to prevent old duplicate con
 - 客户端: ACK=1, seq=u+1, ack=w+1, 服务端接收到该报文段后进入CLOSED状态
 - 客户端: 进入TIME_WAIT后，会等待2MSL(两个最长报文段寿命)的时间，然后进入CLOSED状态
 
-#### 2.2.2为什么要等待2MSL才关闭? 
+#### 2.2.2 为什么TIME-WAIT要等待2MSL才关闭? 
+因为要可靠的实现双方的连接释放。
+
 如果服务端第三次挥手的报文段丢失(或者客户端第四次挥手的报文段丢失)，导致服务端一段时间内没有收到客户端第四次挥手，此时服务端会重发第三次挥手。
 - 那么有2MSL等待的情况下，客户端就会等待，并收到服务端重发的报文段
 - 没有的情况下，如果是客户端第四次挥手的报文段丢失，客户端在发送完第四次挥手的报文段后不等待2MSL，直接CLOSED，那么就收不到服务端重发的三次挥手的报文段，服务端就无法正常释放连接。
 
+#### 2.2.3 出现大量TIME-WAIT
+短时间内服务间出现大量请求，就会建立非常多的连接。在连接释放时，就会出现大量处于TIME_WAIT状态的连接。如果TIME_WAIT状态的连接过多，就会导致一部分内存的占用(一个TIME_WAIT连接占用4k大小)、占用文件描述符、无法创建新连接。
+
+如何解决？
+- 如果是http请求，改用长链接能够有效缓解
+- 修改linux相关内核参数
+  - 打开net.ipv4.tcp_timestamps、net.ipv4.tcp_tw_reuse，调大net.ipv4.tcp_max_tw_buckets
+  - 如果出现TIME_WAIT过多的是nginx导致的，那就修改内核参数net.ipv4.ip_local_port_range，增大可用端口范围,可以短暂缓解
+
+
+### 2.3 查看Linux下的TCP状态
+使用```netstat -napt```
+
+![](/assets/knowledge/计算机网络/tcp/9.png)
 
 
 ## 三、可靠传输
