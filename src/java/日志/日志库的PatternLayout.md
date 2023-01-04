@@ -6,10 +6,8 @@ article: true
 timeline: true
 category: java
 tag:
-
 - 日志
 - PatternLayout
-
 ---
 
 PatternLayout就是定义日志打印格式的玩意，logback、log4j的PatternLayout应该都是通用的
