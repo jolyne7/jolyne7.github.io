@@ -8,7 +8,7 @@ export default defineUserConfig({
     "/": {
       lang: "zh-CN",
       title: "Haya的博客",
-      description: "vuepress-theme-hope 的博客演示",
+      description: "",
     }
   },
 
@@ -34,8 +34,8 @@ export default defineUserConfig({
    (function() {
     var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?7edd9aad671aab1256cd213931de1038";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
+  var s = document.getElementsByTagName("script")[0];
+   s.parentNode.insertBefore(hm, s); })();
      `
   ]],
 });
