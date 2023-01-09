@@ -6,7 +6,6 @@ article: true
 timeline: true
 category: java
 tag:
-- java
 - spring
 ---
 

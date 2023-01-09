@@ -6,8 +6,10 @@ article: true
 timeline: true
 category: java
 tag:
-- java
+- dubbo
 - spring
+- zipkin
+- 链路追踪
 ---
 
 ## 一、依赖
