@@ -110,7 +110,7 @@ The principle reason for the three-way handshake is to prevent old duplicate con
 
 
 ### 2.3 查看Linux下的TCP状态
-使用```netstat -napt```
+使用```netstat -na```
 
 ![](/assets/knowledge/计算机网络/tcp/9.png)
 

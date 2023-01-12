@@ -2,6 +2,7 @@
 title: MySQL
 index: false
 article: false
+date: --
 ---
 - [1.事务](1.事务.md)
 - [2.索引](2.索引.md)

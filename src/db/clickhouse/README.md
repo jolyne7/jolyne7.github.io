@@ -2,6 +2,7 @@
 title: Clickhouse
 index: false
 article: false
+date: --
 ---
 
 - [1.MergeTree](1.MergeTree.md)

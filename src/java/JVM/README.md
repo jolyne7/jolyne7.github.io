@@ -2,6 +2,7 @@
 title: JVM
 index: false
 article: false
+date: --
 ---
 
 - [GC](jvm/gc)

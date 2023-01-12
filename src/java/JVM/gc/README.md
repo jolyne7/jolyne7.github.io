@@ -2,6 +2,7 @@
 title: GC
 index: false
 article: false
+date: --
 ---
 - [1.标记清楚算法](1.标记清楚算法.md)
 - [2.引用计数法](2.引用计数法.md)

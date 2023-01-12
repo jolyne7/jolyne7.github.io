@@ -2,6 +2,7 @@
 title: 分布式
 index: false
 article: false
+date: --
 ---
 
 - [CAP原则](CAP原则.md)
