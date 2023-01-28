@@ -1,6 +1,6 @@
 ---
 author: haya
-title: SPI
+title: Java SPI
 date: 2021-07-01
 article: true
 timeline: true
@@ -9,10 +9,11 @@ tag:
 - java
 - spi
 ---
+## 一、什么是SPI
+Service Provider Interface，服务发现机制。用于指定实现类用的，dubbo里经常用到(but dubbo的spi跟jdk原生的spi不一样)。
 
-指定实现类用的，dubbo里经常用到
-
-## 实例
+## 二、应用
+利用SPI加载接口实现类。
 
 先定义一个接口
 ```java

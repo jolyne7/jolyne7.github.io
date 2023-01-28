@@ -10,15 +10,15 @@ tag:
 - annotation processor
 ---
 
-## 什么是Annotation Processor
+## 一、什么是Annotation Processor
 注解大家肯定都很常用，Annotation Processor就是专门在编译期处理注解用的，像lombok就是这样的。编译期做的好处就是不用像在运行期处理注解那样，到处调反射api，性能更高。
 
-## 实现
+## 二、实现
 实现一个@ToString的注解，能够标注在类上，在编译期间重写一个toString方法，让toString方法返回对象的json字符串
 
 https://github.com/Hayaking/java-mate
 
-### 声明注解
+### 2.1 声明注解
 
 ```java
 @Target(ElementType.TYPE)
@@ -33,7 +33,7 @@ public enum ToStringEnum {
 ```
 
 
-### 声明Annotation Processor
+### 2.2 声明Annotation Processor
 
 ```java
 
@@ -107,7 +107,7 @@ public class ToStringProcessor extends AbstractProcessor {
 }
 ```
 
-### 生成方法
+### 2.3 生成方法
 ```java
 package com.haya.mate.core.template;
 
@@ -204,10 +204,10 @@ public class ToStringTemplateGenerator {
 }
 ```
 
-### 利用SPI声明Json处理器
+### 2.4 利用SPI声明Json处理器
 具体可参考讲SPI的那篇文章
 
-### 测试效果
+### 2.5 测试效果
 
 声明一个java bean
 ```java
@@ -234,7 +234,7 @@ public class Main {
 ```
 
 
-## 注意
+## 三、注意
 如果只是实现着玩玩，推荐用java8。java9之后因为module模块化的引入，出现了大坑。
 
 如果java9及以后要使用的话

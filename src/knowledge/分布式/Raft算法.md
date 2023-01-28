@@ -11,11 +11,11 @@ tag:
 ---
 
 
-## 先讲讲Paxos算法
+## 一、先讲讲Paxos算法
 
 Paxos 算法诞生于 1990 年，这是一种解决分布式系统一致性的经典算法 。但是，由于 Paxos 算法非常难以理解和实现，不断有人尝试简化这一算法。到了2013 年才诞生了一个比 Paxos 算法更易理解和实现的分布式一致性算法—Raft 算法。
 
-## Raft算法
+## 二、Raft算法
 
 算法可互动动画：https://raft.github.io/raftscope/index.html
 
@@ -24,16 +24,16 @@ Paxos 算法诞生于 1990 年，这是一种解决分布式系统一致性的�
 - Follower: 类似选民，完全被动
 - Candidate候选人: 可以被选举成为Leader的节点
 
-### 大概的流程
+### 2.1 大概的流程
 - 任何一个Follower察觉到没有Leader时，会成为一个候选者Candidate，它向其他Follower发出要求选举自己的请求。
 - 其他Follower同意了，发出OK。候选者可以自己选自己，只要达到N/2 + 1 的大多数票，候选人还是可以成为Leader的。
 - 当候选者就成为了Leader后，它可以向选民也就是Follower们发出指令，比如进行日志复制。
 - Leader会定期的向Follower发送心跳，证明自己还活着。
 - 当Leader挂掉后，那么Follower中有一个成为候选者，发出投票选举
 
-## 详解
+## 三、详解
 
-### Leader选举
+### 3.1 Leader选举
 Leader会定期的向Follower发送心跳，证明自己还活着
 
 如果Follower一段时间内没有收到Leader的心跳，就会认为leader没了，然后成为Candidate开始选举。
@@ -47,7 +47,7 @@ Leader会定期的向Follower发送心跳，证明自己还活着
 > 为什么会出现没有任何获胜者的情况？多个follower成为Candidate，使得投票过于分散，没有任何一个Candidate得票超过半数
 
 
-### 日志复制
+### 3.2 日志复制
 
 集群选举产生leader后，就可以为客户端提供服务
 

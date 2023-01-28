@@ -5,7 +5,7 @@ article: false
 date: --
 ---
 
-- [GC](jvm/gc)
+- [GC详解](jvm/GC详解)
 - [什么是JIT编译器](什么是JIT编译器.md)
 - [更换为OpenJ9减少内存IDEA占用](更换为OpenJ9减少内存IDEA占用.md)
 - [线程共享的JVM内存区域有哪些](线程共享的JVM内存区域有哪些.md)

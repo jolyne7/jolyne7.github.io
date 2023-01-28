@@ -1,5 +1,5 @@
 ---
-title: GC
+title: GC详解
 index: false
 article: false
 date: --
