@@ -13,13 +13,13 @@ tag:
 
 ---
 
-## 什么是MDC
+## 一、什么是MDC
 
 映射诊断上下文【Mapped Diagnostic Context (MDC)】，MDC是对日志的扩展应用，它应该能够允许我们自定义想要展示在日志的信息，MDC在多线程环境下有很大的用处，可以管理每个线程的日志
 
 MDC是slf4j提供的，具体的实现是由logback、log4j等日志库实现的。
 
-## 应用
+## 二、应用
 
 最简单的应用就是实现trace_id的透传
 
@@ -92,7 +92,7 @@ public class ServletLogFilter implements Filter{
 [%X{TRACE_ID}] : 会去取当前线程threadLocal中TRACE_ID，并在日志中打印出来
 
 
-## MDC源码解读
+## 三、MDC源码解读
 
 MDC只是slf4j定义的一个规范，具体的实现由日志库负责。这里用到了适配器模式, MDC类的一些操作会转交给MDCAdapter接口的实现类去执行
 
