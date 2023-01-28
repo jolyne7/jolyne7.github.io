@@ -15,7 +15,7 @@ tag:
 - Dubbo SPI配置文件的目录是在/META-INF/dubbo、/META-INF/dubbo/internal/ 下，Java SPI则在/META-INF/services/
 - Dubbo SPI配置文件中每一行写的是kv结构（扩展名=全类名），Java SPI则是全类名
 
-## 二、为什么Dubbo会将使用KV声明SPI文件
+## 二、为什么Dubbo使用KV声明SPI文件
 
 下面是dubbo源码中的例子
 
