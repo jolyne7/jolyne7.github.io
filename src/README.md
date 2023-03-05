@@ -7,7 +7,7 @@ title: 首页
 heroImage: /logo.png
 
 bgImage: /bg.png
-heroText: 'Haya'
+heroText: 'SAIKI'
 tagline: '圈的尽头是另一个起点'
 heroFullScreen: true
 
